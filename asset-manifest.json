@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/papatronic/static/css/main.2cce8147.chunk.css",
-    "main.js": "/papatronic/static/js/main.e033a3e4.chunk.js",
-    "main.js.map": "/papatronic/static/js/main.e033a3e4.chunk.js.map",
+    "main.js": "/papatronic/static/js/main.2ec2a6a9.chunk.js",
+    "main.js.map": "/papatronic/static/js/main.2ec2a6a9.chunk.js.map",
     "runtime~main.js": "/papatronic/static/js/runtime~main.30a36329.js",
     "runtime~main.js.map": "/papatronic/static/js/runtime~main.30a36329.js.map",
-    "static/js/2.b41502e9.chunk.js": "/papatronic/static/js/2.b41502e9.chunk.js",
-    "static/js/2.b41502e9.chunk.js.map": "/papatronic/static/js/2.b41502e9.chunk.js.map",
+    "static/js/2.594daebb.chunk.js": "/papatronic/static/js/2.594daebb.chunk.js",
+    "static/js/2.594daebb.chunk.js.map": "/papatronic/static/js/2.594daebb.chunk.js.map",
     "index.html": "/papatronic/index.html",
-    "precache-manifest.a32ad954cda708ccab8050ce9614d4ca.js": "/papatronic/precache-manifest.a32ad954cda708ccab8050ce9614d4ca.js",
+    "precache-manifest.100273a44fd2368a5de339f2bf60629f.js": "/papatronic/precache-manifest.100273a44fd2368a5de339f2bf60629f.js",
     "service-worker.js": "/papatronic/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/papatronic/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/papatronic/static/media/logo.5d5d9eef.svg"
+    "static/css/main.2cce8147.chunk.css.map": "/papatronic/static/css/main.2cce8147.chunk.css.map"
   }
 }
