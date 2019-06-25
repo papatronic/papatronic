@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { BrowserContext } from '../contexts/BrowserContext';
+import { AppContext } from '../contexts/AppContext';
 
 function BrowserNotSupported() {
-  const browserContext = useContext(BrowserContext);
+  const appContext = useContext(AppContext);
   return (
     <div>Hello! Im the BrowserNotSupported component!</div>
   );

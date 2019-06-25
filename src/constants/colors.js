@@ -1,0 +1,8 @@
+export default {
+  DARKEST_BLUE: '#002A5A',
+  BLUE: '#2E5287',
+  LIGHT_BLUE: '#607EB7',
+  DARKEST_GOLD: '#A07D30',
+  GOLD: '#D4AC5D',
+  LIGHT_GOLD: '#FFDE8C'
+}
