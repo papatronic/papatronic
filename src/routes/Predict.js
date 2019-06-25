@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { BrowserContext } from '../contexts/BrowserContext';
+import { AppContext } from '../contexts/AppContext';
 
 class Predict extends Component {
   constructor() {
@@ -8,7 +8,6 @@ class Predict extends Component {
   }
 
   render() {
-    console.log(this.context)
     return (
       !this.context.supported ? <Redirect to='/browser-not-supported' /> :
       <div>Hello! Im the Predict component!</div>
@@ -16,6 +15,6 @@ class Predict extends Component {
   }
 }
 
-Predict.contextType = BrowserContext;
+Predict.contextType = AppContext;
 
 export default Predict;

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import { BrowserContext } from '../contexts/BrowserContext';
+import { AppContext } from '../contexts/AppContext';
 
 function Home() {
-  const { supported } = useContext(BrowserContext);
+  const { supported } = useContext(AppContext);
   return (
     !supported ? <Redirect to='/browser-not-supported' /> :
     <div>Hello! Im the Home component!</div>
