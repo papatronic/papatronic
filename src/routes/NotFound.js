@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import { BrowserContext } from '../contexts/BrowserContext';
 
 function NotFound() {
-    return (
-        <div>
-            Im the NotFound component!
-        </div>
-    );
+  const { supported } = useContext(BrowserContext);
+  return (
+    !supported ? <Redirect to='/browser-not-supported' /> :
+    <div>Im the NotFound component!</div>
+  );
 }
 
 export default NotFound;
