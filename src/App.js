@@ -8,9 +8,9 @@ import NotFound from './routes/NotFound';
 import Predict from './routes/Predict';
 import BrowserNotSupported from './routes/BrowserNotSupported';
 import ColorTheme from './constants/colors';
-import './App.css';
 
 function App() {
+  console.log(ColorTheme)
   const { version, completeVersion, browserName, supported } = BrowserInformation();
   return (
     <HashRouter>

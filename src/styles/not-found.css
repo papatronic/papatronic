@@ -1,0 +1,62 @@
+.NFarentContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.NFCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  height: 60%;
+  width: 35%;
+}
+
+.NFTitles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto-Regular";
+  height: 50%;
+}
+
+#NFCode {
+  font-size: 5em;
+  font-weight: bold;
+}
+
+#NFTitle {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.NFBody {
+  font-family: "OpenSans-Regular";
+}
+
+#NFBodyBody {
+  font-size: 0.70em;
+}
+
+.NFButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "OpenSans-Regular";
+  font-size: 0.45em;
+  height: 9%;
+  width: 35%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#NFButtonStyle {
+  text-decoration: none;
+  color: white;
+}
