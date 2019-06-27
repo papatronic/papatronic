@@ -15,3 +15,23 @@
 * [React Router](https://reacttraining.com/react-router/)
 
 * [Eslint](https://eslint.org/)
+
+### Responsabilities
+
+> Specific responsabilities by people
+
+* Luis Ramos:
+
+> Base de datos y motor predictivo
+
+* Víctor Morfín:
+
+> Front end móvil y automatizador de la información
+
+* René Vidríales:
+
+> Front end web y automatizador de la información
+
+* Paúl Burgueño
+
+> Tratamiento de datos y creación de modelos predictivos
