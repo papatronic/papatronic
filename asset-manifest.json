@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/papatronic/static/css/main.07394f01.chunk.css",
+    "main.css": "/papatronic/static/css/main.23706c5c.chunk.css",
     "main.js": "/papatronic/static/js/main.4ea82fcd.chunk.js",
     "main.js.map": "/papatronic/static/js/main.4ea82fcd.chunk.js.map",
     "runtime~main.js": "/papatronic/static/js/runtime~main.30a36329.js",
@@ -8,9 +8,9 @@
     "static/js/2.4fe235e4.chunk.js": "/papatronic/static/js/2.4fe235e4.chunk.js",
     "static/js/2.4fe235e4.chunk.js.map": "/papatronic/static/js/2.4fe235e4.chunk.js.map",
     "index.html": "/papatronic/index.html",
-    "precache-manifest.1cb5c6629981c50b32ef60214ed7218a.js": "/papatronic/precache-manifest.1cb5c6629981c50b32ef60214ed7218a.js",
+    "precache-manifest.dd35eba7172eb439a17b832edf4aa787.js": "/papatronic/precache-manifest.dd35eba7172eb439a17b832edf4aa787.js",
     "service-worker.js": "/papatronic/service-worker.js",
-    "static/css/main.07394f01.chunk.css.map": "/papatronic/static/css/main.07394f01.chunk.css.map",
+    "static/css/main.23706c5c.chunk.css.map": "/papatronic/static/css/main.23706c5c.chunk.css.map",
     "static/media/index.css": "/papatronic/static/media/Roboto-Regular.18d44f79.ttf"
   }
 }
