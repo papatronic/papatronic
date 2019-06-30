@@ -5,4 +5,13 @@ const NotFoundStrings = {
   buttonText: 'PÁGINA PRINCIPAL'
 }
 
-export { NotFoundStrings as NFS };
+const BrowserNotSupportedStrings = {
+  title: 'Tu navegador no es compatible con ésta aplicación.',
+  googleChromeDownloadLink: 'https://www.google.com/chrome/b/',
+  mozillaFirefoxDownloadLink: 'https://www.mozilla.org/en-US/firefox/new/'
+};
+
+export { 
+  NotFoundStrings as NFS,
+  BrowserNotSupportedStrings as BNSS
+};
