@@ -1,13 +1,24 @@
-import React, { useContext } from 'react';
+import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
+import { GridContainer } from '../components/Grid';
+import '../styles/home.css';
 
-function Home() {
-  const { supported } = useContext(AppContext);
-  return (
-    !supported ? <Redirect to='/browser-not-supported' /> :
-    <div>Hello! Im the Home component!</div>
-  );
+class Home extends Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      !this.context.supported ? <Redirect to='/browser-not-supported' /> :
+      <GridContainer>
+
+      </GridContainer>
+    );
+  }
 }
+
+Home.contextType = AppContext;
 
 export default Home;
