@@ -19,7 +19,7 @@ function BrowserNotSupported() {
           <p>
             Tu navegador no es compatible con las tecnologías que utilizamos. 
             Para la correcta visualización de éste sitio es necesario que nos 
-            visites desde <a href={BNSS.googleChromeDownloadLink} style={{color: GOLD}}>Google Chrome</a>, <a href={BNSS.mozillaFirefoxDownloadLink} style={{color: GOLD}}>Mozilla Firefox</a> o Apple Safari.
+            visites desde <a target="_blank" rel="noopener noreferrer" href={BNSS.googleChromeDownloadLink} style={{color: GOLD}}>Google Chrome</a>, <a target="_blank" rel="noopener noreferrer" href={BNSS.mozillaFirefoxDownloadLink} style={{color: GOLD}}>Mozilla Firefox</a> o Apple Safari.
           </p>
         </div>
         <FlexCard className="BNSImageContainer">

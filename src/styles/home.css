@@ -1,0 +1,51 @@
+.HomeContainer {
+  grid-template-rows: 10% 90%;
+}
+
+.HomeNavbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HomeNavbarItem {
+  display: flex;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  background-color: white;
+  width: 98%;
+  height: 90%;
+  border-radius: 15px;
+  align-items: center;
+}
+
+#HomeNavbarText {
+  margin-left: 20px;
+  font-size: 0.8em;
+  text-align: center;
+  font-family: "Roboto-Regular";
+}
+
+.HomeItemsContainer {
+  background-color: black;
+  grid-template-columns: 25% 75%;
+}
+
+.FiltersContainer {
+  background-color: white;
+  grid-template-rows: 25% 75%;
+}
+
+.TableContainer {
+  background-color: blue;
+}
+
+.ActualPriceContainer {
+  background-color: gray;
+}
+
+.FiltersCardContainer {
+  background-color: yellow;
+}
