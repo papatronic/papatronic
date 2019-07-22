@@ -22,7 +22,9 @@ class Home extends Component {
         <GridContainer className="HomeItemsContainer">
           <GridContainer className="FiltersContainer">
             <div className="ActualPriceContainer">
-
+              <div className="ActualPriceCard">
+                
+              </div>
             </div>
             <div className="FiltersCardContainer">
 
