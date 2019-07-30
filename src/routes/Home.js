@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
-import GridContainer from '../components/Grid';
-import Navbar from '../components/Navbar';
 import '../styles/home.css';
 
 class Home extends Component {
@@ -13,26 +11,30 @@ class Home extends Component {
   render() {
     return (
       !this.context.supported ? <Redirect to='/browser-not-supported' /> :
-      <GridContainer className="HomeContainer">
-        <Navbar className="HomeNavbar">
-          <div className="HomeNavbarItem">
-            <h4 id="HomeNavbarText">Instituto Tecnológico de Culiacán</h4>
-          </div>
-        </Navbar>
-        <GridContainer className="HomeItemsContainer">
-          <GridContainer className="FiltersContainer">
-            <div className="ActualPriceContainer">
-              <div className="ActualPriceCard">
-                
-              </div>
+      <div className="GridParentContainer">
+        <div className="NavbarContainer">
+          <nav className="NavbarCard Shadow">
+            <h1 className="NavTitle">Instituto Tecnológico de Culiacán</h1>
+          </nav>
+        </div>
+        <div className="ContentGridParentContainer">
+
+          <div className="FilterCardsParentContainer">
+            <div className="ActualPriceCard Shadow BorderRadius">
+              <div className="ActualPriceText">Precio estimado para el día de hoy</div>
+              <div className="ActualPriceNumber">0.00</div>
             </div>
-            <div className="FiltersCardContainer">
+            <div className="FilterCard Shadow BorderRadius">Rick</div>
+          </div>
+
+          <div className="ChartCardContainer">
+            <div className="ChartCard Shadow BorderRadius">
 
             </div>
-          </GridContainer>
-          <div className="TableContainer"></div>
-        </GridContainer>
-      </GridContainer>
+          </div>
+
+        </div>
+      </div>
     );
   }
 }
