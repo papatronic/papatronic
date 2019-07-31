@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto-Regular";
+  font-family: "robotoregular";
   height: 50%;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .NFBody {
-  font-family: "OpenSans-Regular";
+  font-family: "open_sansregular";
 }
 
 #NFBodyBody {
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "OpenSans-Regular";
+  font-family: "open_sansregularr";
   font-size: 0.45em;
   height: 9%;
   width: 35%;
