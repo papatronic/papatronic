@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/papatronic/static/css/main.5a5c675f.chunk.css",
-    "main.js": "/papatronic/static/js/main.20238b80.chunk.js",
-    "main.js.map": "/papatronic/static/js/main.20238b80.chunk.js.map",
+    "main.css": "/papatronic/static/css/main.ca8f9b3f.chunk.css",
+    "main.js": "/papatronic/static/js/main.407aef34.chunk.js",
+    "main.js.map": "/papatronic/static/js/main.407aef34.chunk.js.map",
     "runtime~main.js": "/papatronic/static/js/runtime~main.30a36329.js",
     "runtime~main.js.map": "/papatronic/static/js/runtime~main.30a36329.js.map",
-    "static/js/2.29513794.chunk.js": "/papatronic/static/js/2.29513794.chunk.js",
-    "static/js/2.29513794.chunk.js.map": "/papatronic/static/js/2.29513794.chunk.js.map",
+    "static/js/2.14aeb20a.chunk.js": "/papatronic/static/js/2.14aeb20a.chunk.js",
+    "static/js/2.14aeb20a.chunk.js.map": "/papatronic/static/js/2.14aeb20a.chunk.js.map",
     "index.html": "/papatronic/index.html",
-    "precache-manifest.412490907965a7a4abbc5e6e2694a881.js": "/papatronic/precache-manifest.412490907965a7a4abbc5e6e2694a881.js",
+    "precache-manifest.b01c8c8c7b94b55b6b5e26573f97a2ca.js": "/papatronic/precache-manifest.b01c8c8c7b94b55b6b5e26573f97a2ca.js",
     "service-worker.js": "/papatronic/service-worker.js",
-    "static/css/main.5a5c675f.chunk.css.map": "/papatronic/static/css/main.5a5c675f.chunk.css.map",
-    "static/media/index.css": "/papatronic/static/media/Roboto-Regular.18d44f79.ttf",
+    "static/css/main.ca8f9b3f.chunk.css.map": "/papatronic/static/css/main.ca8f9b3f.chunk.css.map",
     "static/media/apple_safari_logo.png": "/papatronic/static/media/apple_safari_logo.139274a4.png",
     "static/media/google_chrome_logo.png": "/papatronic/static/media/google_chrome_logo.8956d082.png",
-    "static/media/mozilla_firefox_logo.png": "/papatronic/static/media/mozilla_firefox_logo.4b15dabd.png"
+    "static/media/mozilla_firefox_logo.png": "/papatronic/static/media/mozilla_firefox_logo.4b15dabd.png",
+    "static/media/index.css": "/papatronic/static/media/roboto-regular-webfont.b3f43c2e.eot"
   }
 }
