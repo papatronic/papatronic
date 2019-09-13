@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/papatronic/precache-manifest.b01c8c8c7b94b55b6b5e26573f97a2ca.js"
+  "/papatronic/precache-manifest.479834cf0e02741e3fb81f4087e46c82.js"
 );
 
 self.addEventListener('message', (event) => {
