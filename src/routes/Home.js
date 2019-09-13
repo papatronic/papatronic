@@ -10,6 +10,7 @@ import Chart from '../components/Chart';
 import Table from '../components/Table';
 import { AppContext } from '../contexts/AppContext';
 import '../styles/home.css';
+import { RadioGroup } from '@material-ui/core';
 
 class Home extends Component {
   constructor() {
