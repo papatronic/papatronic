@@ -1,3 +1,7 @@
+.CustomFontSize {
+  font-size: calc(1em + 1vw);
+}
+
 .FilterCardItems {
   height: 100%;
   width: 100%;
@@ -103,4 +107,21 @@
   background-color: white;
   height: 98%;
   width: 98.5%;
+}
+
+.ChartContainer {
+  display: flex;
+  width: 75%;
+}
+
+.ChartTableContainer {
+  display: flex;
+  align-items: center;
+}
+
+.Radios {
+  display: flex;
+  min-width: '80%';
+  max-width: '80%';
+  overflow: hidden;
 }

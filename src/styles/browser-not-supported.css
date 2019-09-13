@@ -1,4 +1,5 @@
 .BNSParentContainer {
+  font-size: calc(1em + 1vw);
   justify-content: center;
   align-content: center;
 }

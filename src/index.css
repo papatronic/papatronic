@@ -22,10 +22,6 @@
 
 }
 
-html { 
-  font-size: calc(1em + 1vw);
-}
-
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
