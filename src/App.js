@@ -4,7 +4,7 @@ import { AppContext } from './contexts/AppContext';
 import BrowserInformation from './helpers/BrowserInformation'
 import ContextComponent from './components/ContextComponent';
 import About from './routes/About';
-import Home from './routes/Home';
+import Home from './routes/HomeV2';
 import BrowserNotSupported from './routes/BrowserNotSupported';
 import ColorTheme from './constants/colors';
 

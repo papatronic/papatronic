@@ -10,7 +10,6 @@ import Chart from '../components/Chart';
 import Table from '../components/Table';
 import { AppContext } from '../contexts/AppContext';
 import '../styles/home.css';
-import { RadioGroup } from '@material-ui/core';
 
 class Home extends Component {
   constructor() {
@@ -49,7 +48,7 @@ class Home extends Component {
     this.handleOnFilter = this.handleOnFilter.bind(this);
   }
 
-  async handleDirectionChange(event) { 
+  async handleDirectionChange(event) {
     await this.setState({
       selectedDirection: event.target.value
     });
@@ -102,7 +101,7 @@ class Home extends Component {
               <div className="ActualPriceText">Precio estimado para el día de hoy</div>
               <div className="ActualPriceNumber">{this.currencyFormatter.format(this.state.todaysPrice)} MXN</div>
             </div>
-            
+
             <div className="FilterCard Shadow BorderRadius">
               <div className="FilterCardItems">
                 <Select selectedMarket={this.state.selectedMarket} handleOnChange={this.handleOnSelect} markets={this.state.markets} />
@@ -135,5 +134,4 @@ class Home extends Component {
 }
 
 Home.contextType = AppContext;
-
 export default Home;

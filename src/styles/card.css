@@ -1,0 +1,20 @@
+.CustomFontSize {
+  font-size: calc(1em + 1vw);
+  font-family: "robotoregular";
+}
+
+.FilterCardContent {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 800px) {
+  .FilterCardContent {
+    flex-direction: row;
+  }
+  .DisplayTitle {
+    display: none;
+  }
+}
