@@ -28,17 +28,14 @@ export default class Home extends Component {
       errorMessage: '',
       selectedMarket: '',
       selectedMarketObj: {},
-      radios: [{ key: 1, value: 'Origen', label: 'Origen' }, { key: 2, value: 'Destino', label: 'Destino' }],
       selectedDirection: 'Origen',
       selectedDate: moment().format(),
       errorInRequest: false,
       modalOpen: false,
     };
     this.handleOnSelect = this.handleOnSelect.bind(this);
-    this.handleDirectionChange = this.handleDirectionChange.bind(this);
     this.handleOnFilter = this.handleOnFilter.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
-    this.handleOnFilter = this.handleOnFilter.bind(this);
   }
 
   async handleOnSelect(event) {
@@ -46,18 +43,6 @@ export default class Home extends Component {
       selectedMarket: event.target.value,
       selectedMarketObj: event.target,
     });
-  }
-
-  async handleDirectionChange(event) {
-    const { target: { value } } = event;
-    const selectedMarkets = value === 'Origen' ? this.state.originMarkets : this.state.destinationMarkets;
-    await this.setState(prevState => ({
-      ...prevState,
-      selectedDirection: value,
-      selectedMarket: selectedMarkets[0].id,
-      selectedMarketObj: selectedMarkets[0],
-      selectedMarkets
-    }));
   }
 
   async handleOnFilter() {
@@ -117,7 +102,6 @@ export default class Home extends Component {
               selectedMarket={selectedMarket}
               selectedDirection={selectedDirection}
               markets={selectedMarkets}
-              radios={radios}
               text="Cambiar datos"
               handleOnSelect={this.handleOnSelect}
               handleDirectionChange={this.handleDirectionChange}
