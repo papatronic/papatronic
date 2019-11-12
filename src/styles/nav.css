@@ -25,7 +25,8 @@
   font-size: 0.4em;
   height: 100%;
   width: 30%;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
 .NavRefs a {
@@ -35,6 +36,7 @@
 }
 
 .NavRefs a:hover {
+  height: 30px;
   background-color: red;
 }
 

@@ -1,16 +1,19 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
+import { formatWeekDays } from '../helpers/shared';
+
+const styles = {
+  fontFamily: 'roboto',
+  height: '100px'
+};
 
 export default function Chart(props) {
-  const styles = {
-    fontFamily: 'roboto',
-    height: '100px'
-  }
+  const formattedWeekDays = formatWeekDays(props.chartData);
   return (
     <ResponsiveBar
       style={styles}
-      data={props.chartData}
-      keys={props.chartKeys}
+      data={formattedWeekDays}
+      keys={['precio']}
       indexBy='dia'
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}

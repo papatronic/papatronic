@@ -11,7 +11,14 @@ const BrowserNotSupportedStrings = {
   mozillaFirefoxDownloadLink: 'https://www.mozilla.org/en-US/firefox/new/'
 };
 
+const ModalTexts = {
+  destinationCitiesError: '',
+  originCitiesError: '',
+  predictionError: ''
+};
+
 export { 
   NotFoundStrings as NFS,
-  BrowserNotSupportedStrings as BNSS
+  BrowserNotSupportedStrings as BNSS,
+  ModalTexts as MSS
 };

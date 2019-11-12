@@ -9,16 +9,16 @@ import '../styles/card.css';
 
 export default function FilterCard(props) {
   return (
-    <Card className="CustomFontSize" style={{width: '100%'}}>
+    <Card className="CustomFontSize" style={{width: '100%', height: '55%'}}>
       <CardContent className="FilterCardContent">
-        <Typography className="DisplayTitle" style={{fontSize: '0.8em', marginLeft: '20px'}} variant="inherit" color="textPrimary" gutterBottom>
+        <Typography className="DisplayTitle" style={{fontSize: '0.7em'}} variant="inherit" color="textPrimary" gutterBottom>
           {props.text}
         </Typography>
         <Select selectedMarket={props.selectedMarket} handleOnChange={props.handleOnSelect} markets={props.markets} />
         <div className="Radios">
           <Radio value={props.selectedDirection} onChange={props.handleDirectionChange} radios={props.radios}/>
         </div>
-        <Button onClick={props.handleOnFilter} variant="contained">
+        <Button className="FilterButton" onClick={props.handleOnFilter} variant="contained">
           Filtrar
         </Button>
       </CardContent>

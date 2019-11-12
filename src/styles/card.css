@@ -5,7 +5,7 @@
 
 .FilterCardContent {
   display: flex;
-  height: 100%;
+  height: 95%;
   flex-direction: column;
   justify-content: space-around;
 }
@@ -16,5 +16,9 @@
   }
   .DisplayTitle {
     display: none;
+  }
+  .FilterButton {
+    height: 70%;
+    width: 50%;
   }
 }

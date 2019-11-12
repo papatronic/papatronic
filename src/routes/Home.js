@@ -1,57 +1,44 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import rp from 'request-promise';
-import moment from 'moment-timezone';
-import Button from '@material-ui/core/Button';
-import Select from '../components/Select';
-import Radio from '../components/Radio';
-import DatePicker from '../components/DatePicker';
-import Chart from '../components/Chart';
-import Table from '../components/Table';
 import { AppContext } from '../contexts/AppContext';
+import moment from 'moment-timezone';
+import Chart from '../components/Chart';
+import Nav from '../components/Nav';
+import FilterCard from '../components/Card';
+import DailyPrice from '../components/DailyPrice';
+import MyTable from '../components/Table';
+import ErrorComponent from '../components/ErrorComponent';
+import {
+  getPrediction,
+  getOriginCities,
+  getDestinationCities 
+} from '../helpers/requests';
+import MSS from '../constants/strings';
 import '../styles/home.css';
 
-class Home extends Component {
+export default class Home extends Component {
   constructor() {
     super();
     this.state = {
       todaysPrice: 10,
-      chartKeys: ['precio'],
-      chartData: [{
-        dia: `${moment().format('dd')} ${moment().date()} de ${moment().format('MMM')}`,
-        precio: 10
-      },{
-        dia: `${moment().add(1, 'days').format('dd')} ${moment().add(1, 'days').date()} de ${moment().add(1, 'days').format('MMM')}`,
-        precio: 15
-      },{
-        dia: `${moment().add(2, 'days').format('dd')} ${moment().add(2, 'days').date()} de ${moment().add(2, 'days').format('MMM')}`,
-        precio: 20
-      },{
-        dia: `${moment().add(3, 'days').format('dd')} ${moment().add(3, 'days').date()} de ${moment().add(3, 'days').format('MMM')}`,
-        precio: 10
-      },{
-        dia: `${moment().add(4, 'days').format('dd')} ${moment().add(4, 'days').date()} de ${moment().add(4, 'days').format('MMM')}`,
-        precio: 11
-      }],
-      markets: [{key: 10, text: 'Culiacán', value: 10}, {key: 20, text:'Los Ángeles', value: 20}],
+      chartData: [],
+      selectedMarkets: [],
+      originMarkets: [],
+      destinationMarkets: [],
+      errorMessage: '',
       selectedMarket: '',
       selectedMarketObj: {},
       radios: [{ key: 1, value: 'Origen', label: 'Origen' }, { key: 2, value: 'Destino', label: 'Destino' }],
       selectedDirection: 'Origen',
       selectedDate: moment().format(),
       errorInRequest: false,
+      modalOpen: false,
     };
-    this.currencyFormatter = new Intl.NumberFormat('es-MX', { currency: 'MXN', style: 'currency' });
-    this.handleDirectionChange = this.handleDirectionChange.bind(this);
     this.handleOnSelect = this.handleOnSelect.bind(this);
-    this.handleOnDateChange = this.handleOnDateChange.bind(this);
+    this.handleDirectionChange = this.handleDirectionChange.bind(this);
     this.handleOnFilter = this.handleOnFilter.bind(this);
-  }
-
-  async handleDirectionChange(event) {
-    await this.setState({
-      selectedDirection: event.target.value
-    });
+    this.handleModalClose = this.handleModalClose.bind(this);
+    this.handleOnFilter = this.handleOnFilter.bind(this);
   }
 
   async handleOnSelect(event) {
@@ -61,70 +48,104 @@ class Home extends Component {
     });
   }
 
-  async handleOnDateChange(date) {
-    await this.setState({
-      selectedDate: date.format(),
-    });
+  async handleDirectionChange(event) {
+    const { target: { value } } = event;
+    const selectedMarkets = value === 'Origen' ? this.state.originMarkets : this.state.destinationMarkets;
+    await this.setState(prevState => ({
+      ...prevState,
+      selectedDirection: value,
+      selectedMarket: selectedMarkets[0].id,
+      selectedMarketObj: selectedMarkets[0],
+      selectedMarkets
+    }));
   }
 
-  handleOnFilter() {}
-
-  async componentDidMount() {
+  async handleOnFilter() {
+    const type = this.state.selectedDirection === 'Origen' ? 0 : 1;
+    const id = this.state.selectedMarket;
     try {
-      const predictions = await rp({
-        uri: process.env.REACT_APP_PAPATRONIC_API_ENDPOINT,
-        resolveWithFullResponse: true,
-        json: true,
-        qs: {
-          date: moment().format()
-        }
-      });
-      this.setState(predictions);
+      const prediction = await getPrediction(type, id);
+      await this.setState({ chartData: prediction, todaysPrice: prediction[0] });
     } catch (error) {
-      this.setState({ errorInRequest: true });
+      await this.setState({ errorInRequest: true, modalOpen: true, errorMessage: 'Ocurrió un error al momento de consultar las ciudades disponibles. Inténtelo más tarde. Al hacer click en continuar se recargará el sitio.' });
     }
   }
 
+  async componentDidMount() {
+    try {
+      const originCities = await getOriginCities();
+      const destCities = await getDestinationCities();
+      const prediction = await getPrediction(0, originCities[0].id);
+      destCities.shift();
+      await this.setState({
+        chartData: prediction,
+        todaysPrice: prediction[0],
+        originMarkets: originCities,
+        destinationMarkets: destCities,
+        selectedMarkets: originCities, 
+        selectedMarket: originCities[0].id, 
+        selectedMarketObj: originCities[0]
+      });
+    } catch (error) {}
+  }
+
+  async handleModalClose() {
+    window.location.reload();
+  }
+
   render() {
+    const {
+      modalOpen,
+      errorMessage,
+      selectedMarket,
+      selectedDirection,
+      selectedMarkets,
+      radios,
+      errorInRequest,
+      chartData,
+      todaysPrice
+    } = this.state;
     return (
       !this.context.supported ? <Redirect to='/browser-not-supported' /> :
-      <div className="GridParentContainer CustomFontSize">
-        <div className="NavbarContainer">
-          <nav style={{backgroundColor: this.context.colors.BLUE}} className="NavbarCard Shadow">
-            <h1 className="NavTitle">Instituto Tecnológico de Culiacán</h1>
-          </nav>
-        </div>
-        <div className="ContentGridParentContainer">
+      errorInRequest ? <ErrorComponent open={modalOpen} message={errorMessage} handleClose={this.handleModalClose} /> :
+      <div className="Grid Container CustomFontSize">
+        <Nav/>
+        <div className="Grid InformationContainer">
 
-          <div className="FilterCardsParentContainer">
-            <div className="ActualPriceCard Shadow BorderRadius">
-              <div className="ActualPriceText">Precio estimado para el día de hoy</div>
-              <div className="ActualPriceNumber">{this.currencyFormatter.format(this.state.todaysPrice)} MXN</div>
-            </div>
-
-            <div className="FilterCard Shadow BorderRadius">
-              <div className="FilterCardItems">
-                <Select selectedMarket={this.state.selectedMarket} handleOnChange={this.handleOnSelect} markets={this.state.markets} />
-                <DatePicker value={this.state.selectedDate} onChange={this.handleOnDateChange} />
-                <div className="Radios">
-                  <Radio value={this.state.selectedDirection} onChange={this.handleDirectionChange} radios={this.state.radios}/>
-                </div>
-                <Button onClick={this.handleOnFilter} variant="contained">
-                  Filtrar
-                </Button>
-              </div>
-            </div>
+          <div className="FilterComponent">
+            <FilterCard
+              selectedMarket={selectedMarket}
+              selectedDirection={selectedDirection}
+              markets={selectedMarkets}
+              radios={radios}
+              text="Cambiar datos"
+              handleOnSelect={this.handleOnSelect}
+              handleDirectionChange={this.handleDirectionChange}
+              handleOnFilter={this.handleOnFilter}
+            />
           </div>
 
-          <div className="ChartCardContainer">
-            <div className="ChartCard Shadow BorderRadius">
-              <div className="ChartContainer">
-                <Chart chartKeys={this.state.chartKeys} chartData={this.state.chartData} />
-              </div>
-              <div className="ChartTableContainer">
-                <Table rows={this.state.chartData} />
+          <div className="Grid InformationElements">
+
+            <div className="Grid Chart">
+              <div style={{position: 'relative', height: '100%', width: '100%'}}>
+                <div style={{position: 'absolute', height: '100%', width: '100%'}}>
+                  <Chart chartData={chartData} />
+                </div>
               </div>
             </div>
+
+            <div className="Grid InformationTextElements">
+
+              <div className="DailyPrice">
+                <DailyPrice price={todaysPrice} />
+              </div>
+
+              <div className="Table">
+                <MyTable chartData={chartData} />
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -134,4 +155,3 @@ class Home extends Component {
 }
 
 Home.contextType = AppContext;
-export default Home;

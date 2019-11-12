@@ -9,9 +9,6 @@ export default function Nav() {
       </div>
       <div className="NavRefs">
         <a>
-          <h5>Nosotros</h5>
-        </a>
-        <a>
           <h5>¿Cómo funciona?</h5>
         </a>
       </div>

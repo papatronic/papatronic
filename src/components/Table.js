@@ -6,9 +6,10 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { formatWeekDays, currencyFormatter } from '../helpers/shared';
 
 export default function MyTable(props) {
-  console.log(props)
+  const formattedWeekDays = formatWeekDays(props.chartData);
   return (
     <Card style={{width: '98%', marginLeft: '5px'}}>
       <CardContent>
@@ -20,10 +21,10 @@ export default function MyTable(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.rows.map(row => (
-              <TableRow style={{height: '50px'}} key={row.name}>
+            {formattedWeekDays.map(row => (
+              <TableRow key={row.dia}>
                 <TableCell align="left">{row.dia}</TableCell>
-                <TableCell align="left">{props.currencyFormatter.format(row.precio)} MXN</TableCell>
+                <TableCell align="left">{currencyFormatter.format(row.precio)} MXN</TableCell>
               </TableRow>
             ))}
           </TableBody>
