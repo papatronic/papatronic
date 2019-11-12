@@ -1,3 +1,8 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+}
+
 .BNSParentContainer {
   font-size: calc(1em + 1vw);
   justify-content: center;

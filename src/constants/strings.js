@@ -17,8 +17,13 @@ const ModalTexts = {
   predictionError: ''
 };
 
+const InstitutionName = 'Tecnológico Nacional de México | Instituto Tecnológico de Culiacán'
+const DailyPriceText = 'Precio estimado para';
+
 export { 
   NotFoundStrings as NFS,
   BrowserNotSupportedStrings as BNSS,
-  ModalTexts as MSS
+  ModalTexts as MSS,
+  InstitutionName,
+  DailyPriceText
 };
