@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch } from 'react-router-dom';
 import { AppContext } from './contexts/AppContext';
-import BrowserInformation from './helpers/BrowserInformation'
+import BrowserInformation from './utils/BrowserInformation'
 import ContextComponent from './components/ContextComponent';
 import About from './routes/About';
 import Home from './routes/Home';

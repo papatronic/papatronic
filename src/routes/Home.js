@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
-import moment from 'moment-timezone';
+import moment from 'moment';
 import Chart from '../components/Chart';
 import Nav from '../components/Nav';
 import FilterCard from '../components/Card';
 import DailyPrice from '../components/DailyPrice';
 import MyTable from '../components/Table';
+import Logos from '../components/Logos';
 import ErrorComponent from '../components/ErrorComponent';
 import {
   getPrediction,
   getOriginCities,
   getDestinationCities 
-} from '../helpers/requests';
+} from '../utils/requests';
 import MSS from '../constants/strings';
 import '../styles/home.css';
 
@@ -85,7 +86,6 @@ export default class Home extends Component {
       selectedMarket,
       selectedDirection,
       selectedMarkets,
-      radios,
       errorInRequest,
       chartData,
       todaysPrice
@@ -93,11 +93,48 @@ export default class Home extends Component {
     return (
       !this.context.supported ? <Redirect to='/browser-not-supported' /> :
       errorInRequest ? <ErrorComponent open={modalOpen} message={errorMessage} handleClose={this.handleModalClose} /> :
-      <div className="Grid Container CustomFontSize">
+      <div className="Flex CustomFontSize">
+        <div>
         <Nav/>
+        </div>
+
+        <div className="PageElements">
+
+          <div className="LogosAndFilter">
+            <Logos />
+            <FilterCard
+              selectedMarket={selectedMarket}
+              selectedDirection={selectedDirection}
+              markets={selectedMarkets}
+              text="Cambiar datos"
+              handleOnSelect={this.handleOnSelect}
+              handleDirectionChange={this.handleDirectionChange}
+              handleOnFilter={this.handleOnFilter}
+            />
+          </div>
+
+          <div className="Chart">
+            <Chart chartData={chartData} />
+          </div>
+
+          <div className="DailyAndTable">
+            <DailyPrice price={todaysPrice} />
+            <MyTable chartData={chartData} />
+          </div>
+
+        </div>
+
+      </div>
+    );
+  }
+}
+
+/*
+<Nav/>
         <div className="Grid InformationContainer">
 
           <div className="FilterComponent">
+            <Logos />
             <FilterCard
               selectedMarket={selectedMarket}
               selectedDirection={selectedDirection}
@@ -133,9 +170,6 @@ export default class Home extends Component {
           </div>
 
         </div>
-      </div>
-    );
-  }
-}
+*/
 
 Home.contextType = AppContext;

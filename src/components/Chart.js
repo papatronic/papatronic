@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
-import { formatWeekDays } from '../helpers/shared';
+import { formatWeekDays } from '../utils/index';
 
 const styles = {
   fontFamily: 'roboto',

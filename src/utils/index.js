@@ -1,4 +1,4 @@
-import moment from 'moment-timezone';
+import moment from 'moment';
 import { DailyPriceText } from '../constants/strings';
 
 export function formatWeekDays(data = []) {
@@ -22,11 +22,10 @@ export const currencyFormatter = new Intl.NumberFormat('es-MX', { currency: 'MXN
 export function getPriceDay() {
   const isoWeekDay = moment().isoWeekday();
   switch (isoWeekDay) {
-    case 5:
     case 6:
     case 7:
       return `${DailyPriceText} el próximo lunes`;
     default:
-      return `${DailyPriceText} hoy`;
+      return `${DailyPriceText} el día de hoy`;
   }
 }

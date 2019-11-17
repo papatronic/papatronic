@@ -1,24 +1,36 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { currencyFormatter, getPriceDay } from '../utils';
-import '../styles/card.css';
 
-const getOfficialDay = () => {
-
-}
+const useStyles = makeStyles({
+  card: {
+    minWidth: '100%',
+  },
+  title: {
+    fontSize: 20,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  subtitle: {
+    textAlign: 'center'
+  }
+});
 
 export default function DailyPrice(props) {
-  const today = getPriceDay();
+  const classes = useStyles();
+
   return (
-    <Card className="CustomFontSize" style={{height: '93%', width: '98%'}}>
-      <CardContent className="CardContent" style={{display: 'flex', flexDirection: 'column'}}>
-        <Typography gutterBottom style={{fontSize: '0.6em', textAlign: 'center'}} color="textPrimary">
-          {today}
+    <Card className={classes.card}>
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          {getPriceDay()}
         </Typography>
-        <Typography component="p" style={{fontSize: '0.5em', textAlign: 'center', marginTop: '15px'}} color="textPrimary">
-            {currencyFormatter.format(props.price ? props.price: 0)} MXN
+        <Typography variant="h5" component="h2" className={classes.subtitle}>
+          {currencyFormatter.format(props.price)}
         </Typography>
       </CardContent>
     </Card>

@@ -19,11 +19,15 @@ const ModalTexts = {
 
 const InstitutionName = 'Tecnológico Nacional de México | Instituto Tecnológico de Culiacán'
 const DailyPriceText = 'Precio estimado para';
+const About = 'Acerca de';
+const Us = 'Nosotros';
 
 export { 
   NotFoundStrings as NFS,
   BrowserNotSupportedStrings as BNSS,
   ModalTexts as MSS,
   InstitutionName,
-  DailyPriceText
+  DailyPriceText,
+  About,
+  Us,
 };

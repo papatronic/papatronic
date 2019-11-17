@@ -1,18 +1,36 @@
 import React from 'react';
-import '../styles/nav.css';
-import { InstitutionName } from '../constants/strings';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { InstitutionName, About, Us } from '../constants/strings';
+
+const useStyles = makeStyles(theme => ({
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+    fontSize: '0.9em',
+    [theme.breakpoints.down('1000')]: {
+      fontSize: '0.6em',
+    }
+  },
+}));
 
 export default function Nav() {
+  const classes = useStyles();
+
   return (
-    <nav className="Nav CustomFontSize">
-      <div className="NavTextContainer">
-        <h5 className="NavText">{InstitutionName}</h5>
-      </div>
-      <div className="NavRefs">
-        <a>
-          <h5>¿Cómo funciona?</h5>
-        </a>
-      </div>
-    </nav>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" className={classes.title}>
+          {InstitutionName}
+        </Typography>
+        <Button color="inherit">{Us}</Button>
+        <Button color="inherit">{About}</Button>
+      </Toolbar>
+    </AppBar>
   );
 }

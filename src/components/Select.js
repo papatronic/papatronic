@@ -36,7 +36,7 @@ function MySelect(props) {
       >
         {props.markets.map(market => <MenuItem style={{fontSize: '0.8em'}} key={market.id} value={market.id}>{market.city}</MenuItem>)}
       </Select>
-      <FormHelperText style={{fontSize: '0.3em'}}>Seleccione un lugar</FormHelperText>
+      <FormHelperText style={{fontSize: '0.3em'}}>Seleccione un estado</FormHelperText>
     </FormControl>
   );
 }

@@ -2,21 +2,18 @@
   "name": "papatronic.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://papatronic.github.io/papatronic/",
+  "homepage": "https://papaforecast.com",
   "dependencies": {
     "@material-ui/core": "4.4.0",
     "@nivo/bar": "0.59.2",
     "moment": "2.24.0",
-    "moment-timezone": "0.5.26",
     "nivo": "0.31.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-router-dom": "5.0.1",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.4",
     "request": "2.88.0",
     "request-promise": "4.2.4",
-    "styled-components": "4.3.1",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {
