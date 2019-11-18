@@ -2,7 +2,7 @@
   "name": "papatronic.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://papaforecast.com",
+  "homepage": "https://papatronic.github.io/papatronic/",
   "dependencies": {
     "@material-ui/core": "4.4.0",
     "@nivo/bar": "0.59.2",
@@ -13,10 +13,10 @@
     "react-redux": "^7.1.3",
     "react-router-dom": "5.0.1",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.4",
-    "redux-devtools": "^3.5.0",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0",
+    "redux": "4.0.4",
+    "redux-devtools": "3.5.0",
+    "redux-devtools-extension": "2.13.8",
+    "redux-thunk": "2.3.0",
     "request": "2.88.0",
     "request-promise": "4.2.4",
     "typeface-roboto": "0.0.75"

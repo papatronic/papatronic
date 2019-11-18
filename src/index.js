@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from "redux";
 import mainReducer from './redux/mainReducer';
 import thunk from "redux-thunk";
-import { composeWithDevTools } from 'redux-devtools-extension';
 import './index.css';
 import App from './App';
 import moment from 'moment';
@@ -18,7 +17,7 @@ moment.locale('es', {
 
 const store = createStore(
   mainReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+  applyMiddleware(thunk)
 );
 
 ReactDOM.render(<App store={store} />, document.getElementById('root'));
