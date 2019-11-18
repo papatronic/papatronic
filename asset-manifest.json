@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/papatronic/static/css/main.ffa5d2a7.chunk.css",
-    "main.js": "/papatronic/static/js/main.14027bf4.chunk.js",
-    "main.js.map": "/papatronic/static/js/main.14027bf4.chunk.js.map",
-    "runtime~main.js": "/papatronic/static/js/runtime~main.30a36329.js",
-    "runtime~main.js.map": "/papatronic/static/js/runtime~main.30a36329.js.map",
-    "static/js/2.ea2307af.chunk.js": "/papatronic/static/js/2.ea2307af.chunk.js",
-    "static/js/2.ea2307af.chunk.js.map": "/papatronic/static/js/2.ea2307af.chunk.js.map",
-    "index.html": "/papatronic/index.html",
-    "precache-manifest.b100c7b75fc02e2654a0cf1cbae61f02.js": "/papatronic/precache-manifest.b100c7b75fc02e2654a0cf1cbae61f02.js",
-    "service-worker.js": "/papatronic/service-worker.js",
-    "static/css/main.ffa5d2a7.chunk.css.map": "/papatronic/static/css/main.ffa5d2a7.chunk.css.map",
-    "static/media/apple_safari_logo.png": "/papatronic/static/media/apple_safari_logo.139274a4.png",
-    "static/media/google_chrome_logo.png": "/papatronic/static/media/google_chrome_logo.8956d082.png",
-    "static/media/mozilla_firefox_logo.png": "/papatronic/static/media/mozilla_firefox_logo.4b15dabd.png",
-    "static/media/index.css": "/papatronic/static/media/roboto-regular-webfont.b3f43c2e.eot"
+    "main.css": "/static/css/main.ae468046.chunk.css",
+    "main.js": "/static/js/main.b9f68fa9.chunk.js",
+    "main.js.map": "/static/js/main.b9f68fa9.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.c8775f73.chunk.js": "/static/js/2.c8775f73.chunk.js",
+    "static/js/2.c8775f73.chunk.js.map": "/static/js/2.c8775f73.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9e88a5c5a738ad41ba3219e46cc29534.js": "/precache-manifest.9e88a5c5a738ad41ba3219e46cc29534.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.ae468046.chunk.css.map": "/static/css/main.ae468046.chunk.css.map",
+    "static/media/TecNM-ITC-Logo.png": "/static/media/TecNM-ITC-Logo.3a73b6a0.png",
+    "static/media/index.css": "/static/media/roboto-regular-webfont.b3f43c2e.eot"
   }
 }
