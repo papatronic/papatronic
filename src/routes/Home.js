@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { AppContext } from '../contexts/AppContext';
 import moment from 'moment';
 import Chart from '../components/Chart';
 import Nav from '../components/Nav';
@@ -14,17 +12,16 @@ import {
   getOriginCities,
   getDestinationCities 
 } from '../utils/requests';
-import MSS from '../constants/strings';
 import '../styles/home.css';
 
 export default class Home extends Component {
   constructor() {
     super();
     this.state = {
-      todaysPrice: 10,
-      chartData: [],
+      prediction: [10],
       selectedMarkets: [],
       originMarkets: [],
+      markets: [],
       destinationMarkets: [],
       errorMessage: '',
       selectedMarket: '',
@@ -47,11 +44,11 @@ export default class Home extends Component {
   }
 
   async handleOnFilter() {
-    const type = this.state.selectedDirection === 'Origen' ? 0 : 1;
     const id = this.state.selectedMarket;
+    const type = this.state.originMarkets.includes((market) => (market.id === id)) ? 0 : 1;
     try {
       const prediction = await getPrediction(type, id);
-      await this.setState({ chartData: prediction, todaysPrice: prediction[0] });
+      await this.setState({ prediction });
     } catch (error) {
       await this.setState({ errorInRequest: true, modalOpen: true, errorMessage: 'Ocurrió un error al momento de consultar las ciudades disponibles. Inténtelo más tarde. Al hacer click en continuar se recargará el sitio.' });
     }
@@ -59,19 +56,18 @@ export default class Home extends Component {
 
   async componentDidMount() {
     try {
-      const originCities = await getOriginCities();
-      const destCities = await getDestinationCities();
-      const prediction = await getPrediction(0, originCities[0].id);
-      destCities.shift();
-      await this.setState({
-        chartData: prediction,
-        todaysPrice: prediction[0],
-        originMarkets: originCities,
-        destinationMarkets: destCities,
-        selectedMarkets: originCities, 
-        selectedMarket: originCities[0].id, 
-        selectedMarketObj: originCities[0]
-      });
+      // const originCities = await getOriginCities();
+      // const destCities = await getDestinationCities();
+      // const prediction = await getPrediction(0, originCities[0].id);
+      // destCities.shift();
+      // await this.setState({
+      //   prediction,
+      //   originMarkets: originCities,
+      //   destinationMarkets: destCities,
+      //   selectedMarket: originCities[0].id, 
+      //   selectedMarketObj: originCities[0],
+      //   markets: [...originCities, ...destCities]
+      // });
     } catch (error) {}
   }
 
@@ -84,18 +80,14 @@ export default class Home extends Component {
       modalOpen,
       errorMessage,
       selectedMarket,
-      selectedDirection,
-      selectedMarkets,
+      markets,
       errorInRequest,
-      chartData,
-      todaysPrice
     } = this.state;
     return (
-      !this.context.supported ? <Redirect to='/browser-not-supported' /> :
       errorInRequest ? <ErrorComponent open={modalOpen} message={errorMessage} handleClose={this.handleModalClose} /> :
       <div className="Flex CustomFontSize">
         <div>
-        <Nav/>
+          <Nav/>
         </div>
 
         <div className="PageElements">
@@ -104,9 +96,7 @@ export default class Home extends Component {
             <Logos />
             <FilterCard
               selectedMarket={selectedMarket}
-              selectedDirection={selectedDirection}
-              markets={selectedMarkets}
-              text="Cambiar datos"
+              markets={markets}
               handleOnSelect={this.handleOnSelect}
               handleDirectionChange={this.handleDirectionChange}
               handleOnFilter={this.handleOnFilter}
@@ -114,12 +104,12 @@ export default class Home extends Component {
           </div>
 
           <div className="Chart">
-            <Chart chartData={chartData} />
+            <Chart prediction={this.state.prediction} />
           </div>
-
+  
           <div className="DailyAndTable">
-            <DailyPrice price={todaysPrice} />
-            <MyTable chartData={chartData} />
+            <DailyPrice prediction={this.state.prediction[0]} />
+            <MyTable prediction={this.state.prediction} />
           </div>
 
         </div>
@@ -128,48 +118,3 @@ export default class Home extends Component {
     );
   }
 }
-
-/*
-<Nav/>
-        <div className="Grid InformationContainer">
-
-          <div className="FilterComponent">
-            <Logos />
-            <FilterCard
-              selectedMarket={selectedMarket}
-              selectedDirection={selectedDirection}
-              markets={selectedMarkets}
-              text="Cambiar datos"
-              handleOnSelect={this.handleOnSelect}
-              handleDirectionChange={this.handleDirectionChange}
-              handleOnFilter={this.handleOnFilter}
-            />
-          </div>
-
-          <div className="Grid InformationElements">
-
-            <div className="Grid Chart">
-              <div style={{position: 'relative', height: '100%', width: '100%'}}>
-                <div style={{position: 'absolute', height: '100%', width: '100%'}}>
-                  <Chart chartData={chartData} />
-                </div>
-              </div>
-            </div>
-
-            <div className="Grid InformationTextElements">
-
-              <div className="DailyPrice">
-                <DailyPrice price={todaysPrice} />
-              </div>
-
-              <div className="Table">
-                <MyTable chartData={chartData} />
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-*/
-
-Home.contextType = AppContext;

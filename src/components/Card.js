@@ -34,7 +34,7 @@ export default function FilterCard(props) {
         <Typography className={classes.title} color="textPrimary" gutterBottom>
           Cambiar estado
         </Typography>
-        <Typography className={classes.subtitle} color="textSecondary" gutterBotton>
+        <Typography className={classes.subtitle} color="textSecondary" gutterBottom>
           Seleccione el estado del cual busca obtener predicciones
         </Typography>
       </CardContent>

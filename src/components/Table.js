@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 });
 
 export default function MyTable(props) {
-  const formattedWeekDays = formatWeekDays(props.chartData);
+  const formattedWeekDays = formatWeekDays(props.prediction);
   const classes = useStyles();
   return (
     <Paper className={classes.root}>

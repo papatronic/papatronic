@@ -1,22 +1,15 @@
 import React from 'react';
-import { HashRouter, Switch } from 'react-router-dom';
-import { AppContext } from './contexts/AppContext';
-import BrowserInformation from './utils/BrowserInformation'
-import ContextComponent from './components/ContextComponent';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import About from './routes/About';
 import Home from './routes/Home';
-import BrowserNotSupported from './routes/BrowserNotSupported';
-import ColorTheme from './constants/colors';
 
 function App() {
-  const { version, completeVersion, browserName, supported } = BrowserInformation();
   return (
     <HashRouter>
       <Switch>
-        <ContextComponent exact path='/' value={{ version, completeVersion, browserName, supported, colors: ColorTheme }} context={AppContext} Component={Home} />
-        <ContextComponent exact path='/about' value={{ version, completeVersion, browserName, supported, colors: ColorTheme }} context={AppContext} Component={About} />
-        <ContextComponent exact path='/browser-not-supported' value={{ version, completeVersion, browserName, supported, colors: ColorTheme }} context={AppContext} Component={BrowserNotSupported} />
-        <ContextComponent path='*' value={{ version, completeVersion, browserName, supported, colors: ColorTheme }} context={AppContext} Component={Home} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route path='*' component={Home} />
       </Switch>
     </HashRouter>
   );

@@ -30,7 +30,7 @@ export default function DailyPrice(props) {
           {getPriceDay()}
         </Typography>
         <Typography variant="h5" component="h2" className={classes.subtitle}>
-          {currencyFormatter.format(props.price)}
+          {currencyFormatter.format(props.prediction)}
         </Typography>
       </CardContent>
     </Card>
