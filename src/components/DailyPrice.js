@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 export default function DailyPrice(props) {
   const classes = useStyles();
 
+  const precio = props.prediction ? props.prediction : 0;
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -30,7 +31,7 @@ export default function DailyPrice(props) {
           {getPriceDay()}
         </Typography>
         <Typography variant="h5" component="h2" className={classes.subtitle}>
-          {currencyFormatter.format(props.prediction)}
+          {currencyFormatter.format(precio)}
         </Typography>
       </CardContent>
     </Card>

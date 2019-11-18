@@ -22,6 +22,16 @@ const DailyPriceText = 'Precio estimado para';
 const About = 'Acerca de';
 const Us = 'Nosotros';
 
+const ErrorInRequestModal = {
+  title: 'Ocurrió un problema',
+  message: 'Al parecer ocurrió un problema conectando con nuestro servidor. Espere un momento y de click en continuar.'
+};
+
+const AboutTheSite = {
+  title: 'Acerca de este sitio',
+  message: ''
+};
+
 export { 
   NotFoundStrings as NFS,
   BrowserNotSupportedStrings as BNSS,
@@ -30,4 +40,6 @@ export {
   DailyPriceText,
   About,
   Us,
+  AboutTheSite,
+  ErrorInRequestModal,
 };

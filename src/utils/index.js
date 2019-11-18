@@ -10,7 +10,7 @@ export function formatWeekDays(data = []) {
       const dayS = day.format('dd');
       const date = day.date();
       const month = day.format('MM');
-      const precio = data.shift();
+      const precio = data.length > 0 ? data.shift() : '0';
       weekDays.push({ dia: `${dayS} ${date} de ${month}`, precio }); 
     }
   }

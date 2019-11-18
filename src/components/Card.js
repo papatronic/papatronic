@@ -10,7 +10,8 @@ import '../styles/card.css';
 
 const useStyles = makeStyles({
   card: {
-    height: '45%'
+    height: '45%',
+    maxWidth: '90%'
   },
   title: {
     fontSize: '0.7em',

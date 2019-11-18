@@ -29,7 +29,7 @@ function MySelect(props) {
     <FormControl className={formClassName}>
       <Select
         value={props.selectedMarket}
-        onChange={props.handleOnChange}
+        onChange={(event) => props.handleOnChange(event)}
         displayEmpty
         name="markets"
         className={selectClassName}

@@ -1,0 +1,16 @@
+.Chart {
+  width: 50%;
+  margin: 10px;
+  align-items: center;
+  align-content: center;
+}
+
+.DailyAndTable {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  width: 20%;
+  margin: 10px;
+  flex-direction: column;
+}

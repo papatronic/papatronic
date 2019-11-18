@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from "redux";
+import mainReducer from './redux/mainReducer';
+import thunk from "redux-thunk";
+import { composeWithDevTools } from 'redux-devtools-extension';
 import './index.css';
 import App from './App';
 import moment from 'moment';
@@ -12,4 +16,9 @@ moment.locale('es', {
   weekdaysParseExact : true,
 });
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+const store = createStore(
+  mainReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
+ReactDOM.render(<App store={store} />, document.getElementById('root'));

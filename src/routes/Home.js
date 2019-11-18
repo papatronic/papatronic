@@ -1,54 +1,40 @@
 import React, { Component } from 'react';
-import moment from 'moment';
-import Chart from '../components/Chart';
+import { connect } from "react-redux";
+import PredictionSection from '../components/PredictionSection';
 import Nav from '../components/Nav';
 import FilterCard from '../components/Card';
-import DailyPrice from '../components/DailyPrice';
-import MyTable from '../components/Table';
 import Logos from '../components/Logos';
-import ErrorComponent from '../components/ErrorComponent';
-import {
-  getPrediction,
-  getOriginCities,
-  getDestinationCities 
-} from '../utils/requests';
+import Loading from '../components/Loading';
+import Dialog from '../components/Dialog';
+import { fetchPrediction } from '../redux/fetchPredictions';
+import { fetchCities } from '../redux/fetchCities';
+import { setCity } from '../redux/chartProperties';
+import { ErrorInRequestModal, AboutTheSite } from '../constants/strings';
 import '../styles/home.css';
 
-export default class Home extends Component {
+class Home extends Component {
   constructor() {
     super();
     this.state = {
-      prediction: [10],
-      selectedMarkets: [],
-      originMarkets: [],
-      markets: [],
-      destinationMarkets: [],
-      errorMessage: '',
-      selectedMarket: '',
-      selectedMarketObj: {},
-      selectedDirection: 'Origen',
-      selectedDate: moment().format(),
       errorInRequest: false,
       modalOpen: false,
+      aboutModalOpen: true,
     };
     this.handleOnSelect = this.handleOnSelect.bind(this);
     this.handleOnFilter = this.handleOnFilter.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
+    this.switchAboutModal = this.switchAboutModal.bind(this);
   }
 
   async handleOnSelect(event) {
-    await this.setState({
-      selectedMarket: event.target.value,
-      selectedMarketObj: event.target,
-    });
+    this.props.dispatch(setCity(event.target.value));
   }
 
   async handleOnFilter() {
-    const id = this.state.selectedMarket;
-    const type = this.state.originMarkets.includes((market) => (market.id === id)) ? 0 : 1;
+    const id = this.props.city;
+    const type = this.props.originCities.includes((market) => (market.id === id)) ? 0 : 1;
     try {
-      const prediction = await getPrediction(type, id);
-      await this.setState({ prediction });
+      this.props.dispatch(fetchPrediction(type, id));
     } catch (error) {
       await this.setState({ errorInRequest: true, modalOpen: true, errorMessage: 'Ocurrió un error al momento de consultar las ciudades disponibles. Inténtelo más tarde. Al hacer click en continuar se recargará el sitio.' });
     }
@@ -56,38 +42,34 @@ export default class Home extends Component {
 
   async componentDidMount() {
     try {
-      // const originCities = await getOriginCities();
-      // const destCities = await getDestinationCities();
-      // const prediction = await getPrediction(0, originCities[0].id);
-      // destCities.shift();
-      // await this.setState({
-      //   prediction,
-      //   originMarkets: originCities,
-      //   destinationMarkets: destCities,
-      //   selectedMarket: originCities[0].id, 
-      //   selectedMarketObj: originCities[0],
-      //   markets: [...originCities, ...destCities]
-      // });
-    } catch (error) {}
+      this.props.dispatch(fetchCities());
+      this.props.dispatch(fetchPrediction(0, 42));
+    } catch (error) {
+      await this.setState({ errorInRequest: true });
+    }
   }
 
   async handleModalClose() {
-    window.location.reload();
+    await this.setState({
+      errorInRequest: false,
+    });
+  }
+
+  async switchAboutModal() {
+    await this.setState((prevState) => {
+      return { aboutModalOpen: !prevState.aboutModalOpen }
+    });
   }
 
   render() {
-    const {
-      modalOpen,
-      errorMessage,
-      selectedMarket,
-      markets,
-      errorInRequest,
-    } = this.state;
+    const { modalOpen, errorInRequest, aboutModalOpen } = this.state;
+    const { error: predictionError, loading, predictions, cities, city } = this.props;
     return (
-      errorInRequest ? <ErrorComponent open={modalOpen} message={errorMessage} handleClose={this.handleModalClose} /> :
+      aboutModalOpen ? <Dialog open={aboutModalOpen} title={AboutTheSite.title} message={AboutTheSite.message} handleClose={this.switchAboutModal} /> :
+      (errorInRequest || predictionError) ? <Dialog open={modalOpen} title={ErrorInRequestModal.title} message={ErrorInRequestModal.message} handleClose={this.handleModalClose} /> :
       <div className="Flex CustomFontSize">
         <div>
-          <Nav/>
+          <Nav open={aboutModalOpen} title={AboutTheSite.title} message={AboutTheSite.message} handleOpen={this.switchAboutModal} />
         </div>
 
         <div className="PageElements">
@@ -95,22 +77,15 @@ export default class Home extends Component {
           <div className="LogosAndFilter">
             <Logos />
             <FilterCard
-              selectedMarket={selectedMarket}
-              markets={markets}
+              selectedMarket={city}
+              markets={cities}
               handleOnSelect={this.handleOnSelect}
               handleDirectionChange={this.handleDirectionChange}
               handleOnFilter={this.handleOnFilter}
             />
           </div>
 
-          <div className="Chart">
-            <Chart prediction={this.state.prediction} />
-          </div>
-  
-          <div className="DailyAndTable">
-            <DailyPrice prediction={this.state.prediction[0]} />
-            <MyTable prediction={this.state.prediction} />
-          </div>
+          {loading ? <Loading /> : <PredictionSection predictions={predictions} />}
 
         </div>
 
@@ -118,3 +93,7 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapStateToProps = state => (state.predictionsReducer);
+
+export default connect(mapStateToProps)(Home);

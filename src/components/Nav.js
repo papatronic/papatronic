@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { InstitutionName, About, Us } from '../constants/strings';
+import { InstitutionName, About } from '../constants/strings';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Nav() {
+export default function Nav(props) {
   const classes = useStyles();
 
   return (
@@ -28,8 +28,7 @@ export default function Nav() {
         <Typography variant="h6" className={classes.title}>
           {InstitutionName}
         </Typography>
-        <Button color="inherit">{Us}</Button>
-        <Button color="inherit">{About}</Button>
+        <Button onClick={props.handleOpen} color="inherit">{About}</Button>
       </Toolbar>
     </AppBar>
   );
