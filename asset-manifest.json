@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/papatronic/static/css/main.e558c775.chunk.css",
-    "main.js": "/papatronic/static/js/main.522ff199.chunk.js",
-    "main.js.map": "/papatronic/static/js/main.522ff199.chunk.js.map",
-    "runtime~main.js": "/papatronic/static/js/runtime~main.30a36329.js",
-    "runtime~main.js.map": "/papatronic/static/js/runtime~main.30a36329.js.map",
-    "static/js/2.e21d3f80.chunk.js": "/papatronic/static/js/2.e21d3f80.chunk.js",
-    "static/js/2.e21d3f80.chunk.js.map": "/papatronic/static/js/2.e21d3f80.chunk.js.map",
-    "index.html": "/papatronic/index.html",
-    "precache-manifest.c7a6fe9f1e382516c9691c27120c7e9f.js": "/papatronic/precache-manifest.c7a6fe9f1e382516c9691c27120c7e9f.js",
-    "service-worker.js": "/papatronic/service-worker.js",
-    "static/css/main.e558c775.chunk.css.map": "/papatronic/static/css/main.e558c775.chunk.css.map",
-    "static/media/TecNM-ITC-Logo.png": "/papatronic/static/media/TecNM-ITC-Logo.3a73b6a0.png",
-    "static/media/index.css": "/papatronic/static/media/roboto-regular-webfont.b3f43c2e.eot"
+    "main.css": "/static/css/main.ae468046.chunk.css",
+    "main.js": "/static/js/main.04bc9eae.chunk.js",
+    "main.js.map": "/static/js/main.04bc9eae.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.b06a58ba.chunk.js": "/static/js/2.b06a58ba.chunk.js",
+    "static/js/2.b06a58ba.chunk.js.map": "/static/js/2.b06a58ba.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.5da5f541874a0d7965b427c03ed1b71a.js": "/precache-manifest.5da5f541874a0d7965b427c03ed1b71a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.ae468046.chunk.css.map": "/static/css/main.ae468046.chunk.css.map",
+    "static/media/TecNM-ITC-Logo.png": "/static/media/TecNM-ITC-Logo.3a73b6a0.png",
+    "static/media/index.css": "/static/media/roboto-regular-webfont.b3f43c2e.eot"
   }
 }
