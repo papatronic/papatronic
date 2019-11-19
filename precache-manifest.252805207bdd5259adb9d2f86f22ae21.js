@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "415489f6f031f7130ca7361a87045920",
+    "revision": "03da9bfdf136bfb9187fa16ccf42aaca",
     "url": "/papatronic/index.html"
   },
   {
-    "revision": "7fe61eafcf4a5eae88f0",
+    "revision": "3897ca11199514e3f5bc",
     "url": "/papatronic/static/css/main.280ffed0.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/papatronic/static/js/2.67443e47.chunk.js"
   },
   {
-    "revision": "7fe61eafcf4a5eae88f0",
-    "url": "/papatronic/static/js/main.a8fe70ea.chunk.js"
+    "revision": "3897ca11199514e3f5bc",
+    "url": "/papatronic/static/js/main.d2680903.chunk.js"
   },
   {
     "revision": "c252de006d5ce5e54e54",
