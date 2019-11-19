@@ -32,7 +32,7 @@ class Home extends Component {
 
   async handleOnFilter() {
     const id = this.props.city;
-    const type = this.props.originCities.includes((market) => (market.id === id)) ? 0 : 1;
+    const type = this.props.originCities.findIndex((market) => (market.id === id)) > -1 ? 0 : 1;
     try {
       this.props.dispatch(fetchPrediction(type, id));
     } catch (error) {

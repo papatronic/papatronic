@@ -5,7 +5,6 @@ export const FETCH_PREDICTION_SUCCESS = 'FETCH_PREDICTION_SUCCESS';
 export const FETCH_PREDICTION_FAILURE = 'FETCH_PREDICTION_FAILURE';
 
 async function getPrediction(type, id) {
-  console.log({ type, id })
   try {
     const response = await rp({
       method: 'POST',
@@ -15,7 +14,6 @@ async function getPrediction(type, id) {
     });
     return response;
   } catch (error) {
-    console.log(error)
     return error;
   }
 }

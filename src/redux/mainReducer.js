@@ -38,6 +38,7 @@ function predictionsReducer(state = initialState, action) {
         ...state,
         loading: false,
         predictions: JSON.parse(JSON.stringify(action.payload.predictions)),
+        city: 42,
         someValue: JSON.parse(JSON.stringify(action.payload.predictions)),
       };
     case FETCH_PREDICTION_FAILURE:
@@ -58,7 +59,7 @@ function predictionsReducer(state = initialState, action) {
         ...state,
         cities: action.payload.cities,
         originCities: action.payload.originCities,
-        city: action.payload.cities[0]
+        city: action.payload.cities[0].id
       };
     case FETCH_CITIES_FAILURE:
       return {
