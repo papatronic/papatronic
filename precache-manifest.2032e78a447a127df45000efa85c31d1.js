@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e039530f0a7842b703453128409b3f0c",
+    "revision": "8aa4122cd70f689882bb07cfaaf49dcd",
     "url": "/papatronic/index.html"
   },
   {
