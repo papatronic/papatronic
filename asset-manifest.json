@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/papatronic/static/css/main.9e97e2d6.chunk.css",
-    "main.js": "/papatronic/static/js/main.3a262ffb.chunk.js",
-    "main.js.map": "/papatronic/static/js/main.3a262ffb.chunk.js.map",
+    "main.css": "/papatronic/static/css/main.6dd54994.chunk.css",
+    "main.js": "/papatronic/static/js/main.913e579b.chunk.js",
+    "main.js.map": "/papatronic/static/js/main.913e579b.chunk.js.map",
     "runtime~main.js": "/papatronic/static/js/runtime~main.30a36329.js",
     "runtime~main.js.map": "/papatronic/static/js/runtime~main.30a36329.js.map",
-    "static/js/2.d376e4e5.chunk.js": "/papatronic/static/js/2.d376e4e5.chunk.js",
-    "static/js/2.d376e4e5.chunk.js.map": "/papatronic/static/js/2.d376e4e5.chunk.js.map",
+    "static/js/2.89029035.chunk.js": "/papatronic/static/js/2.89029035.chunk.js",
+    "static/js/2.89029035.chunk.js.map": "/papatronic/static/js/2.89029035.chunk.js.map",
     "index.html": "/papatronic/index.html",
-    "precache-manifest.fbd40c60e825c8474e1c669e4b82cb70.js": "/papatronic/precache-manifest.fbd40c60e825c8474e1c669e4b82cb70.js",
+    "precache-manifest.45e4597b860772bf1b7784dfbfdc6aa5.js": "/papatronic/precache-manifest.45e4597b860772bf1b7784dfbfdc6aa5.js",
     "service-worker.js": "/papatronic/service-worker.js",
-    "static/css/main.9e97e2d6.chunk.css.map": "/papatronic/static/css/main.9e97e2d6.chunk.css.map",
+    "static/css/main.6dd54994.chunk.css.map": "/papatronic/static/css/main.6dd54994.chunk.css.map",
     "static/media/TecNM-ITC-Logo.png": "/papatronic/static/media/TecNM-ITC-Logo.3a73b6a0.png",
     "static/media/index.css": "/papatronic/static/media/roboto-regular-webfont.b3f43c2e.eot"
   }
