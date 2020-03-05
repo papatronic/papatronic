@@ -64,9 +64,10 @@ class Home extends Component {
   render() {
     const { modalOpen, errorInRequest, aboutModalOpen } = this.state;
     const { error: predictionError, loading, predictions, cities, city } = this.props;
+    
     return (
       aboutModalOpen ? <Dialog open={aboutModalOpen} title={AboutTheSite.title} message={AboutTheSite.message} handleClose={this.switchAboutModal} /> :
-      (errorInRequest || predictionError) ? <Dialog open={modalOpen} title={ErrorInRequestModal.title} message={ErrorInRequestModal.message} handleClose={this.handleModalClose} /> :
+      (errorInRequest || predictionError) ? <Dialog shouldReload={true} open={true} title={ErrorInRequestModal.title} message={ErrorInRequestModal.message} handleClose={this.handleModalClose} /> :
       <div className="Flex CustomFontSize">
         <div>
           <Nav open={aboutModalOpen} title={AboutTheSite.title} message={AboutTheSite.message} handleOpen={this.switchAboutModal} />
@@ -86,7 +87,6 @@ class Home extends Component {
           </div>
 
           {loading ? <Loading /> : <PredictionSection predictions={predictions} />}
-
         </div>
 
       </div>
@@ -96,4 +96,4 @@ class Home extends Component {
 
 const mapStateToProps = state => (state.predictionsReducer);
 
-export default connect(mapStateToProps)(Home);
+ export default connect(mapStateToProps)(Home);

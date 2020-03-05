@@ -29,7 +29,9 @@ const ErrorInRequestModal = {
 
 const AboutTheSite = {
   title: 'Acerca de este sitio',
-  message: ''
+  message: `Este sitio fue desarrollado en el Tecnológico Nacional de México, Instituto Tecnológico de Culiacán.
+            Un proyecto que predice mediante técnicas de inteligencia artificial el precio de las papas en diferentes
+            mercados de la república mexicana.`
 };
 
 export { 

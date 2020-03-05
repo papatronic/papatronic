@@ -6,7 +6,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+function reload() {
+  window.location.reload();
+}
+
 export default function AlertDialog(props) {
+  let action = props.handleClose;
+  if (props.shouldReload) action = reload;
   return (
     <>
       <Dialog
@@ -22,7 +28,7 @@ export default function AlertDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.handleClose} color="primary" autoFocus>
+          <Button onClick={action} color="primary" autoFocus>
             Continuar
           </Button>
         </DialogActions>
