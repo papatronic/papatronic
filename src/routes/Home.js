@@ -6,10 +6,11 @@ import FilterCard from '../components/Card';
 import Logos from '../components/Logos';
 import Loading from '../components/Loading';
 import Dialog from '../components/Dialog';
+import AboutComponent from '../components/CustomDialog';
 import { fetchPrediction } from '../redux/fetchPredictions';
 import { fetchCities } from '../redux/fetchCities';
 import { setCity } from '../redux/chartProperties';
-import { ErrorInRequestModal, AboutTheSite } from '../constants/strings';
+import { ErrorInRequestModal, AboutTheSite, AboutUs } from '../constants/strings';
 import '../styles/home.css';
 
 class Home extends Component {
@@ -19,11 +20,13 @@ class Home extends Component {
       errorInRequest: false,
       modalOpen: false,
       aboutModalOpen: true,
+      aboutUsModalOpen: false,
     };
     this.handleOnSelect = this.handleOnSelect.bind(this);
     this.handleOnFilter = this.handleOnFilter.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
     this.switchAboutModal = this.switchAboutModal.bind(this);
+    this.switchAboutUsModal = this.switchAboutUsModal.bind(this);
   }
 
   async handleOnSelect(event) {
@@ -61,16 +64,22 @@ class Home extends Component {
     });
   }
 
+  async switchAboutUsModal() {
+    await this.setState((prevState) => {
+      return { aboutUsModalOpen: !prevState.aboutUsModalOpen }
+    });
+  }
+
   render() {
-    const { modalOpen, errorInRequest, aboutModalOpen } = this.state;
+    const { modalOpen, errorInRequest, aboutModalOpen, aboutUsModalOpen } = this.state;
     const { error: predictionError, loading, predictions, cities, city } = this.props;
-    
     return (
+      aboutUsModalOpen ? <Dialog open={aboutUsModalOpen} title={AboutUs.title} handleClose={this.switchAboutUsModal}><AboutComponent /></Dialog> :
       aboutModalOpen ? <Dialog open={aboutModalOpen} title={AboutTheSite.title} message={AboutTheSite.message} handleClose={this.switchAboutModal} /> :
       (errorInRequest || predictionError) ? <Dialog shouldReload={true} open={true} title={ErrorInRequestModal.title} message={ErrorInRequestModal.message} handleClose={this.handleModalClose} /> :
       <div className="Flex CustomFontSize">
         <div>
-          <Nav open={aboutModalOpen} title={AboutTheSite.title} message={AboutTheSite.message} handleOpen={this.switchAboutModal} />
+          <Nav handleOpenUs={this.switchAboutUsModal} open={aboutModalOpen} title={AboutTheSite.title} message={AboutTheSite.message} handleOpen={this.switchAboutModal} />
         </div>
 
         <div className="PageElements">

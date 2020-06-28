@@ -38,14 +38,13 @@ function predictionsReducer(state = initialState, action) {
         ...state,
         loading: false,
         predictions: JSON.parse(JSON.stringify(action.payload.predictions)),
-        city: 42,
         someValue: JSON.parse(JSON.stringify(action.payload.predictions)),
       };
     case FETCH_PREDICTION_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.payload.error,
+        error: action && action.payload && action.payload.error ? action.payload.error : 'La petición falló. Si el problema persiste, contáctenos.',
         predictions: []
       };
     case FETCH_CITIES_BEGIN:

@@ -5,17 +5,12 @@ export const FETCH_PREDICTION_SUCCESS = 'FETCH_PREDICTION_SUCCESS';
 export const FETCH_PREDICTION_FAILURE = 'FETCH_PREDICTION_FAILURE';
 
 async function getPrediction(type, id) {
-  try {
-    const response = await rp({
-      method: 'POST',
-      json: true,
-      uri: `${process.env.REACT_APP_PREDICT_EC2_ENDPOINT}/predict`,
-      body: { type, id }
-    });
-    return response;
-  } catch (error) {
-    return error;
-  }
+  return await rp({
+    method: 'POST',
+    json: true,
+    uri: `${process.env.REACT_APP_PREDICT_EC2_ENDPOINT}/predict`,
+    body: { type, id }
+  });
 }
 
 export const fetchPredictionsBegin = () => ({
@@ -37,8 +32,12 @@ export function fetchPrediction(type, id) {
     dispatch(fetchPredictionsBegin());
     return getPrediction(type, id)
     .then(predictions => {
-      dispatch(fetchPredictionsSuccess(predictions));
-      return predictions;
+      if (Array.isArray(predictions)) {
+        dispatch(fetchPredictionsSuccess(predictions));
+        return predictions;
+      }
+      dispatch(fetchPredictionsFailure([]));
+      return [];
     })
     .catch(error => {
       dispatch(fetchPredictionsFailure(error))

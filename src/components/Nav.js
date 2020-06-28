@@ -1,10 +1,11 @@
 import React from 'react';
+import {} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { InstitutionName, About } from '../constants/strings';
+import { InstitutionName, About, Us } from '../constants/strings';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -29,6 +30,7 @@ export default function Nav(props) {
           {InstitutionName}
         </Typography>
         <Button onClick={props.handleOpen} color="inherit">{About}</Button>
+        <Button onClick={props.handleOpenUs} color="inherit">{Us}</Button>
       </Toolbar>
     </AppBar>
   );

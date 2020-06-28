@@ -31,8 +31,16 @@ const AboutTheSite = {
   title: 'Acerca de este sitio',
   message: `Este sitio fue desarrollado en el Tecnológico Nacional de México, Instituto Tecnológico de Culiacán.
             Un proyecto que predice mediante técnicas de inteligencia artificial el precio de las papas en diferentes
-            mercados de la república mexicana.`
+            mercados de la república mexicana.
+            
+            En caso de encontrar un problema en el uso de este software, repórtelo a la brevedad.`
 };
+
+const AboutUs = {
+  title: 'Nosotros',
+  headNames: ['M.C. Gloria Ekaterine Peralta Peñuñuri', 'Dr. Héctor Rodríguez Rangel'],
+  workerNames: ['Jorge Burgueño, Ingeniería en Sistemas.', 'Luis Ramos, Ingeniería en TICs.', 'Víctor Morfín, Ingeniería en TICs.', 'René Vidríales, Ingeniería en Sistemas.']
+}
 
 export { 
   NotFoundStrings as NFS,
@@ -44,4 +52,5 @@ export {
   Us,
   AboutTheSite,
   ErrorInRequestModal,
+  AboutUs,
 };

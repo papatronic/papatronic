@@ -16,6 +16,7 @@ export default function AlertDialog(props) {
   return (
     <>
       <Dialog
+        style={{height: 'auto', width: 'auto' }}
         open={props.open}
         onClose={props.handleClose}
         aria-labelledby="alert-dialog-title"
@@ -23,9 +24,12 @@ export default function AlertDialog(props) {
       >
         <DialogTitle id="alert-dialog-title">{props.title}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {props.message}
-          </DialogContentText>
+          {
+            props.children ? props.children :
+            <DialogContentText id="alert-dialog-description">
+              {props.message}
+            </DialogContentText>
+          }
         </DialogContent>
         <DialogActions>
           <Button onClick={action} color="primary" autoFocus>
